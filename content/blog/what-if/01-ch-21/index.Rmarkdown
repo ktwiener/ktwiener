@@ -1,0 +1,76 @@
+---
+date: "2023-07-07"
+draft: false
+excerpt: "Describes the solution to the bias of traditional methods in the presence of treatment-confounder feedback."
+subtitle: ""
+title: "Chapter 21. G-methods for time-varying treatments"
+tags: 
+- "causal-inference"
+weight: 1
+---
+
+[Hernán MA, Robins JM (2020). Causal Inference: What If. Boca Raton: Chapman & Hall/CRC.](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+
+## 21.1 The g-formula for time-varying treatments
+
+### Time-fixed
+
+Suppose the below data arise from a sequentially randomized experiment. There are two time points $k$. Treatment at time $k=0$ is assigned with probability 0.5. Treatment at time $k=1$ is assigned with probability 0.4 if $L_1=0$ and 0.8 if $L_1=1$. The outcome is a function of covariate L and other clinical measures, with higher values signifying better health.
+
+| $N$ | $A_0$ | $L_1$ | $A_1$ | $\bar{Y}$ |
+|-------|---------|---------|---------|-------------|
+| 2400  | 0       | 0       | 0       | 84          |
+| 1600  | 0       | 0       | 1       | 84          |
+| 2400  | 0       | 1       | 0       | 52          |
+| 9600  | 0       | 1       | 1       | 52          |
+| 4800  | 1       | 0       | 0       | 76          |
+| 3200  | 1       | 0       | 1       | 76          |
+| 1600  | 1       | 1       | 0       | 44          |
+| 6400  | 1       | 1       | 1       | 44          |
+
+We are interested in the effect of the time-fixed treatment $A_1$: i.e.
+
+$$E[Y^{a_1=1}]-E[Y^{a_1=0}]$$
+
+Under the identifiability conditions, each mean is the weighted average of the mean outcome conditional on the time-fixed treatment and confounders.
+
+For example, the g-formula for $E[Y^{a_1=1}]$ is:
+
+$$\sum_{l_1}{E[Y|A_1=a_1, L_1=l]\times f(l_1)}$$ which is just the weighted average.
+
+### Time-varying
+
+#### Deterministic treatment strategies
+
+In order to calculate the counterfactual means for a time-varying treatment $E\[Y^{a_0,a_1}\]$, we must generalize the above g-formula. It will still be a weighted average, but now conditional on the time-varying treatment as well as confounders.
+
+The g-formula for two time points then is:
+
+$$\sum_{l_1}{E[Y|A_0=a_0,A_1=a_1, L_1=l]\times f(l_1|a_0)}$$
+
+Generalizing further, the g-formula for $K+1$ time points is:
+
+$$\sum_{\bar{l}}{E[Y|\bar{A}=\bar{a},\bar{L}=\bar{l}]}\prod^K_{k=0}f(l_k|\bar{a}_{k-1},\bar{l}_{k-1})$$
+
+Often, the components of the g-formula cannot be computed if the data are high-dimensional; therefore, each part of the g-formula must be estimated. The estimates can then be plugged into the g-formula (the *plug-in g-formula*, or, when based on parametric models, the *parametric g-formula*).
+
+#### Random treatment strategies
+
+Under sequential exchangeability, the g-formula can be used to compute the counterfactual mean of the outcome under a random treatment strategy $f^{int}$.
+
+Example: independently at each time $k$, treatment individuals with probability 0.3:
+
+$$f^{int}(1|\bar{a}_{k-1},\bar{l}_k)=0.3$$
+
+**In plain english: no matter what the treatment history or time-varying covariate, the probability of treatment is 0.3.** 
+
+> Question: Does this mean the probability of treatment is independent of treatment and covariate history?
+
+#### General form for both:
+
+$$\sum_{\bar{l},\bar{a}}{E[Y|\bar{A}=\bar{a},\bar{L}=\bar{l}]}\prod^K_{k=0}f(l_k|\bar{a}_{k-1},\bar{l}_{k-1})\prod^K_{k=0}f^{int}(a_k|\bar{a}_{k-1},\bar{l}_{k-1})$$
+
+> Question: I'm starting to suspect some of my misunderstanding is happening because the products are part of the sum -> it's not 3 distinct parts?
+
+
+
