@@ -60,6 +60,9 @@ params:
     - icon: rss
       icon_pack: fas
       url: /blog/index.xml
+    - icon: cv
+      icon_pack: ai
+      url: /files/wiener_cv_20230707.pdf
   socialInFooter: yes
   socialInHeader: no
   textFontFamily: avenir

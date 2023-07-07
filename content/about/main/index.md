@@ -14,12 +14,11 @@ intro: |
   
   **Notes:**
   * Random artwork around the site is by my sister, Maggie. 
-  * The site heavily features pictures of my dogs, Murrey and Ollie. Murrey passed away in October 2022 and much of the site is dedicated to showcasing his beauty. 
-  
+  * The site heavily features pictures of my dogs, Murrey and Ollie. 
   
 show_outro: false
 outro: |
-  <i class="fas fa-glass-cheers pr2"></i>Sincere thanks to [Maëlle Salmon](https://masalmon.eu/) for her help naming this Hugo theme!
+  <i class="ai ai-cv"></i> My CV!
 ---
 
 ** index doesn't contain a body, just front matter above.
