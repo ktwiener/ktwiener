@@ -10,7 +10,7 @@ links:
 - icon: github
   icon_pack: fab
   name: code
-  url: https://github.com/ktwiener/survey-output-creation
+  url: https://github.com/ktwiener/metamonkey
 title: SAS survey output
 ---
 
