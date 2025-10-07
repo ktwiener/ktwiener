@@ -1,3 +1,3 @@
 ## Welcome!
 
-Checkout out my website here: https://ktwiener.github.io/
+Checkout my website https://ktwiener.github.io/
