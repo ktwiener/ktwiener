@@ -1,6 +1,5 @@
 I am a PhD student in Epidemiology. My research interests are in pharmacoepidemiology and HIV. 
 
-- **GitHub:** [ktwiener](https://github.com/ktwiener)
 - **Website:** [ktwiener.github.io](https://ktwiener.github.io/)
 
 ## Featured Repositories
