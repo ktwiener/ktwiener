@@ -7,4 +7,4 @@ I am a PhD student in Epidemiology. My research interests are in pharmacoepidemi
 ## Featured Repositories
 
 - [**Publications Repository**](https://github.com/ktwiener/publications): My collection of published work and supporting code.
-- [**metamonkey (SAS)**](https://github.com/ktwiener/metamonkey): A focused SAS toolkit for meta-analysis workflows.
+- [**metamonkey (SAS)**](https://github.com/ktwiener/metamonkey): A focused SAS toolkit for importing survey data and creating automated tables. 
